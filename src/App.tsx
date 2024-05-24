@@ -1,26 +1,22 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import Sidebar from "./sidebar";
+import OLMap from "./map";
 
-function App() {
+// Create a QueryClient instance
+const queryClient = new QueryClient();
+
+const App: React.FC = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <QueryClientProvider client={queryClient}>
+      <div style={{ display: "flex" }}>
+        <Sidebar />
+        <div style={{ marginLeft: "350px", flex: 1 }}>
+          <OLMap />
+        </div>
+      </div>
+    </QueryClientProvider>
   );
-}
+};
 
 export default App;
