@@ -73,7 +73,7 @@ const olMap = new Map({
   ],
   view: new View({
     center: fromLonLat([126.978, 37.5665]),
-    zoom: 12,
+    zoom: 4,
   }),
 });
 
@@ -160,7 +160,7 @@ export const zoomToLocation = (lon: number, lat: number) => {
 
   view.animate({
     center: coordinate,
-    zoom: 17,
+    zoom: 19,
     duration: 1000,
   });
 };
